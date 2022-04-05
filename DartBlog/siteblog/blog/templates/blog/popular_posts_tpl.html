@@ -1,0 +1,17 @@
+<h2 class="sidebar-title">Популярные посты</h2>
+<div class="grid">
+  {% for post in posts %}
+    <div class="portfolio-item popular">
+      {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+      {% else %}
+        <img src="/media/photos/2021/default/Leo_fail.jpg" alt="{{ post.title }}" width="400"
+             height="201">
+      {% endif %}
+      <div class="portfolio-text">
+        <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+        <p>{{ post.author }}<span>|</span>{{ post.created_at|date:"d.m.Y" }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
